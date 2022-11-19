@@ -50,3 +50,11 @@ input {
 .verify:hover {
     background-color: #08205e;
 }
+
+.correct {
+    border: 2px solid #008800;
+}
+
+.wrong {
+    border: 2px solid #880000;
+}
