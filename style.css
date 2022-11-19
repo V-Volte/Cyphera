@@ -1,0 +1,52 @@
+body * {
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    font-weight: 400;
+}
+
+.messagecontainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input {
+    border: none;
+    padding: 5px 10px;
+}
+
+.row,
+.hrow {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 10px;
+}
+
+.cipher {
+    font-weight: 600;
+    color: #000056;
+}
+
+.plain {
+    color: #005600;
+}
+
+.hrow * {
+    font-weight: 100;
+}
+
+.verify {
+    border: none;
+    border-radius: 5px;
+    background-color: #1040ae;
+    cursor: pointer;
+    color: white;
+    margin-top: 15px;
+    padding: 5px 10px;
+}
+
+.verify:hover {
+    background-color: #08205e;
+}
