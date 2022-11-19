@@ -8,6 +8,8 @@ let sentences = [
     "New encryption system will be used from midnight. Details will be sent via encrypted post."
 ]
 
+let htext = "Please attempt to decipher the following communications: "
+
 let demos = [
     "Missiles launched from the north front.",
     "Movement detected within the old forest.",
@@ -62,6 +64,29 @@ for (let i = 0; i < sentences.length; ++i) {
 
     qcont.appendChild(row);
 }
+
+let maxpoints = 0;
+for (let i = 0; i < sentences.length; ++i) maxpoints += sentences[i].length;
+
+
+function verifyCorrectness() {
+    let points = 0;
+    for (let i = 0; i < sentences.length; ++i) {
+        let text = document.getElementById(`a${i}`).value;
+        let dist = levenshtein(sentences[i], text);
+
+        points += sentences[i].length - dist;
+
+        if (dist < sentences[i].length / 2) document.getElementById(`a${i}`).classList.add('correct');
+        else document.getElementById(`a${i}`).classList.add('wrong');
+    }
+    return points;
+}
+
+document.getElementById('verify').addEventListener("click", () => {
+    let points = verifyCorrectness();
+    document.getElementById('h').innerText = `${htext} (Current points: ${points} / ${maxpoints})`
+})
 
 // for (let i = 0; i < 4; ++i) {
 //     encryptedDemos.push(fibEncrypt(demos[i]));
