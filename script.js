@@ -73,7 +73,7 @@ function verifyCorrectness() {
     let points = 0;
     for (let i = 0; i < sentences.length; ++i) {
         let text = document.getElementById(`a${i}`).value;
-        let dist = levenshtein(sentences[i], text);
+        let dist = levenshtein(sentences[i].toLowerCase(), text.toLowerCase());
 
         points += sentences[i].length - dist;
 
